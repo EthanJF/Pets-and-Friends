@@ -4,7 +4,7 @@
 </blockquote>
 <hr></hr>
   <!-- <h3><a href="***INSERT HEROKU / NOW LINK HERE***" >Check it out on Heroku!</a></h3> -->
-<hr></hr>
+<!-- <hr></hr> -->
 <p><strong>Built With:</strong></p>
 <ul>
   <li>React.js</li>
@@ -46,4 +46,5 @@
 <ul>
 <li>Medium at <a href="http://medium.com/@EthanJF" rel="nofollow"><code>@EthanJF</code></a></li>
 </ul>
+<hr></hr>
 <p>Created with the help of <a href="https://github.com/pavel-ilin">Pavel Ilin</a></p>
