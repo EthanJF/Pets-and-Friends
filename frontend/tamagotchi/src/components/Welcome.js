@@ -20,7 +20,7 @@ export default class Welcome extends Component {
                 {this.state.returningUser ? (<button onClick={this.handleClick}>I'm a new user!</button>) : (<button onClick= { this.handleClick }>I'm a returning user!</button>)}
 
                  {this.state.returningUser ? (<Login setToken={this.props.setToken} />) : (<Signup setToken={this.props.setToken} />)}
-                <img alt="smiley" src={require("../imgs/pets.png")} />
+                <img alt="dog and cat hugging" src={require("../imgs/pets.png")} />
             </div>
         )
     }
