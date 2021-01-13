@@ -25,7 +25,7 @@ export default class Dashboard extends Component {
             .then(r => r.json())
             .then(resObj => {
                 this.setState({
-                    myPets: resObj.pets,
+                    myPets: resObj.pets ? resObj.pets : [],
                     username: resObj.username
                 })
             })
@@ -40,29 +40,32 @@ export default class Dashboard extends Component {
 
     adoptAPet = (pet) => {
         // debugger
-        if(!this.state.myPets.find(element => element.id === pet.id)){
-            fetch("http://localhost:3000/adopt_pets", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: JSON.stringify({
-                  adopt_pet:{
-                    user_id: this.props.userID,
-                    pet_id: pet.id
-                }
-              })
-            })
-            .then(r => r.json)
-            .then(resObj => {
-                this.setState({
-                    myPets: [...this.state.myPets, pet]
+        if(this.state.myPets){
+            if(!this.state.myPets.find(element => element.id === pet.id)){
+                fetch("http://localhost:3000/adopt_pets", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+                    body: JSON.stringify({
+                      adopt_pet:{
+                        user_id: this.props.userID,
+                        pet_id: pet.id
+                    }
+                  })
                 })
-            })
-        } else {
-            alert("You've already adopted this pet!")
+                .then(r => r.json)
+                .then(resObj => {
+                    this.setState({
+                        myPets: [...this.state.myPets, resObj]
+                    })
+                })
+            } else {
+                alert("You've already adopted this pet!")
+            }
         }
+
 
     }
 
